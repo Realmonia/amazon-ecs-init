@@ -32,6 +32,7 @@ ACTIVATION_CODE=""
 ACTIVATION_ID=""
 # optional:
 SKIP_REGISTRATION=false
+SKIP_AGENT_INSTALL=false
 ECS_CLUSTER=""
 DOCKER_SOURCE=""
 ECS_VERSION=""
@@ -82,6 +83,10 @@ while :; do
         ;;
     --skip-registration)
         SKIP_REGISTRATION=true
+        shift 1
+        ;;
+    --skip-agent-install)
+        SKIP_AGENT_INSTALL=true
         shift 1
         ;;
     *)
@@ -510,6 +515,8 @@ if ! $SKIP_REGISTRATION; then
     install-ssm-agent
 fi
 install-docker "$DOCKER_SOURCE"
-install-ecs-agent
-verify-agent
-show-license
+if ! $SKIP_AGENT_INSTALL; then
+    install-ecs-agent
+    verify-agent
+    show-license
+fi

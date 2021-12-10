@@ -62,6 +62,7 @@ type Engine struct {
 	credentialsProxyRoute    credentialsProxyRoute
 	ipv6RouterAdvertisements ipv6RouterAdvertisements
 	nvidiaGPUManager         gpu.GPUManager
+	accountId			     string
 }
 
 type TerminalError struct {
@@ -99,6 +100,7 @@ func New() (*Engine, error) {
 		credentialsProxyRoute:    credentialsProxyRoute,
 		ipv6RouterAdvertisements: ipv6RouterAdvertisements,
 		nvidiaGPUManager:         gpu.NewNvidiaGPUManager(),
+		accountId : 			  "123456789012",
 	}, nil
 }
 

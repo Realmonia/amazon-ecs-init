@@ -372,7 +372,6 @@ ssm-agent-signature-verify() {
     gpg --import "$dir/amazon-ssm-agent.gpg"
 
     if gpg --verify "$1" "$2"; then
-        echo 'accountId" : "123456789012"'
         echo "amazon-ssm-agent GPG verification passed. Install the amazon-ssm-agent."
     else
         echo "amazon-ssm-agent GPG verification failed. Stop the installation of the amazon-ssm-agent. Please contact AWS Support."

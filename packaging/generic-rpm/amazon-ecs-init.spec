@@ -27,7 +27,7 @@
 
 Name:           amazon-ecs-init
 Version:        1.58.0
-Release:        2
+Release:        3
 License:        Apache 2.0
 Summary:        Amazon Elastic Container Service initialization application
 ExclusiveArch:  x86_64 aarch64
